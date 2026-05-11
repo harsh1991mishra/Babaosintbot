@@ -1,0 +1,15 @@
+[project]
+name = "repl-nix-workspace"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.100.0",
+    "dnspython>=2.8.0",
+    "phonenumbers>=9.0.30",
+    "python-telegram-bot==21.6",
+    "python-whois>=0.9.6",
+    "requests>=2.33.1",
+    "telegram>=0.0.1",
+    "whois>=1.20240129.2",
+]
