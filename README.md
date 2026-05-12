@@ -1,135 +1,124 @@
 # 🕵️ Cyber Baba OSINT Bot
 
-> Free, open-source OSINT toolkit delivered via Telegram — **no paid APIs, no AI hallucinations, just real intelligence data.**
+> **@Babaosintbot** — 18 free intelligence tools in one Telegram bot. Tap buttons, get results. No commands, no paid APIs.
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://python.org)
-[![python-telegram-bot](https://img.shields.io/badge/python--telegram--bot-21.6-blue)](https://python-telegram-bot.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Telegram](https://img.shields.io/badge/Telegram-@Babaosintbot-blue?logo=telegram)](https://t.me/Babaosintbot)
+[![Telegram Bot](https://img.shields.io/badge/Telegram-@Babaosintbot-2CA5E0?logo=telegram)](https://t.me/Babaosintbot)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Free](https://img.shields.io/badge/APIs-100%25%20Free-brightgreen)](https://github.com/harsh1991mishra/Babaosintbot)
 
 ---
 
-## 🔍 What is it?
+## 🚀 Features
 
-**@Babaosintbot** is a Telegram bot that runs real OSINT (Open Source Intelligence) operations directly in your chat. No ChatGPT, no Gemini — just battle-tested free tools and open APIs queried live.
+| Category | Tools |
+|---|---|
+| **Identity** | 📞 Phone • 📧 Email Breach • 👤 Username Hunt • 🏷 MAC Vendor |
+| **Network** | 🌐 IP Geo • 🎯 Shodan • 🔌 Port Scan • 🌍 ASN • 🛡 Reverse IP |
+| **Domain/Web** | 🔍 WHOIS • 📡 DNS • 📂 Subdomains • 🔐 SSL/TLS • 🏛 Wayback |
+| **URLs** | 🔗 URL Analysis • 🔎 HTTP Headers | 
+| **Intelligence** | 💡 Google Dorks • 🔑 Hash Lookup |
 
-Built by **Harsh Mishra** (`harsh1991mishra`) for security researchers, data analysts, and curious minds.
+## 🆓 Data Sources — All Free
 
----
+| Tool | Source | Key needed? |
+|---|---|---|
+| 📞 Phone | Google libphonenumber | ❌ None |
+| 📧 Email Breach | LeakCheck.io public API | ❌ None |
+| 👤 Username | Sherlock (open-source) | ❌ None |
+| 🌐 IP Geo | ip-api.com | ❌ None |
+| 🎯 Shodan | internetdb.shodan.io | ❌ None |
+| 🔌 Port Scan | HackerTarget nmap API | ❌ None |
+| 🌍 ASN | HackerTarget ASN API | ❌ None |
+| 🛡 Reverse IP | HackerTarget reverse | ❌ None |
+| 🔍 WHOIS | python-whois | ❌ None |
+| 📡 DNS | dnspython | ❌ None |
+| 📂 Subdomains | crt.sh cert transparency | ❌ None |
+| 🔐 SSL/TLS | Python ssl module | ❌ None |
+| 🏛 Wayback | archive.org | ❌ None |
+| 🔗 URL/Headers | requests library | ❌ None |
+| 🏷 MAC Vendor | macvendors.com | ❌ None |
+| 💡 Google Dorks | Local generator | ❌ None |
+| 🔑 Hash Lookup | CIRCL HashLookup + Cymru | ❌ None |
 
-## ⚡ Features & Commands
+## ⚙️ Setup & Deploy
 
-| Command | Description | Data Source |
-|---------|-------------|-------------|
-| `/ip <IP/domain>` | Geolocation, ISP, ASN, proxy/VPN detection | ip-api.com |
-| `/whois <domain>` | Registrar, registrant, dates, nameservers | python-whois |
-| `/dns <domain>` | A, AAAA, MX, NS, TXT, CNAME, SOA records | dnspython |
-| `/user <username>` | Check username across 20+ social platforms | HTTP enumeration |
-| `/phone <+number>` | Country, carrier, line type, number format | phonenumbers |
-| `/url <url>` | Unshorten, follow redirects, HTTPS/HSTS check | requests |
-| `/headers <url>` | Full HTTP headers + security header audit | requests |
-| `/sub <domain>` | Subdomain enumeration via certificate logs | crt.sh |
-| `/reverse <IP>` | Reverse IP / shared hosting lookup | HackerTarget |
-| `/myip` | Lookup your own public IP info | ipify + ip-api |
-| `/help` | Full command reference | — |
-| `/about` | About this bot | — |
+### Replit (Recommended)
+1. Fork this repo or open in Replit
+2. Add `TELEGRAM_BOT_TOKEN` in **Secrets** tab
+3. Run `python bot.py` or use the workflow
+4. Publish as **Reserved VM** for 24/7 uptime
 
-**Smart detection:** Drop a plain IP or domain into the chat and the bot auto-detects what you want.
-
----
-
-## 🏗 Tech Stack
-
-| Component | Library / API |
-|-----------|---------------|
-| Bot framework | [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) v21.6 |
-| IP intelligence | [ip-api.com](https://ip-api.com) (free, 45 req/min) |
-| WHOIS | [python-whois](https://github.com/richardpenman/whois) |
-| DNS records | [dnspython](https://github.com/rthalley/dnspython) |
-| Phone parsing | [phonenumbers](https://github.com/daviddrysdale/python-phonenumbers) |
-| Subdomains | [crt.sh](https://crt.sh) (certificate transparency) |
-| Reverse IP | [HackerTarget](https://hackertarget.com/reverse-ip-lookup/) (free tier) |
-| HTTP analysis | Python `requests` |
-
----
-
-## 🚀 Setup & Run
-
-### Prerequisites
-
-- Python 3.11+
-- A Telegram Bot Token from [@BotFather](https://t.me/BotFather)
-
-### 1. Clone the repo
-
+### Heroku
 ```bash
-git clone https://github.com/harsh1991mishra/Babaosintbot.git
-cd Babaosintbot
+heroku create
+heroku config:set TELEGRAM_BOT_TOKEN=your_token
+git push heroku main
 ```
 
-### 2. Install dependencies
-
+### Railway / Any VPS
 ```bash
-pip install python-telegram-bot==21.6 python-whois dnspython phonenumbers requests
-```
-
-### 3. Set environment variables
-
-```bash
-export TELEGRAM_BOT_TOKEN="your_token_here"
-```
-
-Or create a `.env` file (and use `python-dotenv`):
-
-```env
-TELEGRAM_BOT_TOKEN=your_token_here
-```
-
-### 4. Run
-
-```bash
+export TELEGRAM_BOT_TOKEN=your_token
+pip install -r requirements.txt
 python bot.py
 ```
 
----
+## 📦 Install Dependencies
 
-## 🌐 Deploy on Replit
-
-1. Fork this repo or import it into [Replit](https://replit.com)
-2. Add `TELEGRAM_BOT_TOKEN` to Replit Secrets
-3. The bot workflow starts automatically
-
----
-
-## 📁 Project Structure
-
-```
-Babaosintbot/
-├── bot.py          # Main bot — all OSINT logic and handlers
-├── README.md       # This file
-├── pyproject.toml  # Python dependencies
-└── .gitignore      # Ignores .env and cache files
+```bash
+pip install python-telegram-bot==21.6 phonenumbers dnspython python-whois requests sherlock-project
 ```
 
+## 🔐 Security
+
+- **Never hardcode API keys** — use environment variables
+- `TELEGRAM_BOT_TOKEN` is the only required secret
+- All other tools use public APIs with no authentication
+- `.gitignore` blocks `.env`, `config.py`, `secrets.py`, `*.key`, `*.pem` etc.
+
+## 💬 Usage
+
+Start the bot on Telegram: **[@Babaosintbot](https://t.me/Babaosintbot)**
+
+Simply tap any button from the menu — no commands needed!
+
+```
+/start    — show main menu
+/menu     — show main menu  
+/ip       — IP geolocation
+/shodan   — Shodan InternetDB
+/portscan — port scanner
+/asn      — ASN lookup
+/whois    — domain WHOIS
+/dns      — DNS records
+/sub      — subdomain finder
+/ssl      — SSL/TLS certificate
+/wayback  — Wayback Machine
+/phone    — phone intelligence
+/email    — email breach check
+/user     — username hunt
+/mac      — MAC vendor lookup
+/dork     — Google dork generator
+/hash     — hash lookup
+/url      — URL analysis
+/headers  — HTTP headers
+/reverse  — reverse IP
+/myip     — server IP info
+```
+
+## 🏗 Architecture
+
+- **Single-file Python bot** (`bot.py`) — simple, fast to iterate
+- **State machine** via `user_data["mode"]` — no ConversationHandler complexity
+- **Button-first UX** — all tools accessible via inline keyboard
+- **Smart auto-detect** — free-text IPs, emails, hashes, phones auto-routed
+- **Async executor** — blocking lookups run in thread pool (non-blocking bot)
+- **Graceful degradation** — rate limits shown as helpful messages, not crashes
+
+## 👤 Creator
+
+**Harsh Mishra** — [@harsh1991mishra](https://github.com/harsh1991mishra)
+
 ---
 
-## 🔒 Privacy & Ethics
-
-- This bot queries **publicly available data only**
-- No user data is stored or logged
-- Intended for **educational, defensive security, and research** purposes
-- Never use OSINT tools against individuals without consent or legal authority
-
----
-
-## 👨‍💻 Author
-
-**Harsh Mishra**
-- GitHub: [@harsh1991mishra](https://github.com/harsh1991mishra)
-- Telegram Bot: [@Babaosintbot](https://t.me/Babaosintbot)
-
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
+*Made with ❤️ for the OSINT community. Use responsibly and legally.*
