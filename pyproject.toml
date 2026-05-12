@@ -1,15 +1,28 @@
 [project]
 name = "repl-nix-workspace"
 version = "0.1.0"
-description = "Add your description here"
+description = "Cyber Baba OSINT Bot — @Babaosintbot"
 requires-python = ">=3.11"
 dependencies = [
-    "anthropic>=0.100.0",
-    "dnspython>=2.8.0",
-    "phonenumbers>=9.0.30",
+    # Telegram bot framework
     "python-telegram-bot==21.6",
+
+    # Phone intelligence — free, no API key (Google libphonenumber)
+    "phonenumbers>=9.0.30",
+
+    # Domain / network OSINT — all free
+    "dnspython>=2.8.0",
     "python-whois>=0.9.6",
-    "requests>=2.33.1",
-    "telegram>=0.0.1",
     "whois>=1.20240129.2",
+
+    # Username hunt — free, open-source (runs as subprocess)
+    "sherlock-project>=0.16.0",
+
+    # HTTP requests for all API calls
+    "requests>=2.33.1",
+
+    # NOTE: Email breach uses LeakCheck.io public API (free, no key)
+    # NOTE: Phone uses Google libphonenumber bundled in phonenumbers (free, no key)
+    # NOTE: Username uses Sherlock CLI (free, open-source)
+    # NEVER hardcode API keys — use environment variables or Replit Secrets
 ]
