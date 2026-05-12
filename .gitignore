@@ -1,11 +1,63 @@
-.env
-*.env
-__pycache__/
-*.py[cod]
-.venv/
-venv/
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# compiled output
+dist
+tmp
+out-tsc
+*.tsbuildinfo
+.expo
+.expo-shared
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
 .DS_Store
-*.log
-.pythonlibs/
-uv.lock
+Thumbs.db
+
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
+
+# Replit
 .cache/
+.local/
+
+# ── Secrets & environment files ─────────────────────────────────
+# Never commit these — store secrets in Replit Secrets / GitHub Secrets / Heroku Config Vars
+.env
+.env.local
+.env.*.local
+config.py
+secrets.py
+*.secret
+*.key
+*.pem
+api_keys.py
+credentials.py
+local_settings.py
